@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arú - Chocolate artesanal con packaging ecológico</title>
+  <meta name="description" content="Descubre nuestras barras de chocolate artesanal con packaging ecológico, elaboradas con los mejores ingredientes y técnicas tradicionales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Incluir los íconos de Lucide.dev -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Estilos base */
+    :root {
+      --primary: #44231f;
+      --primary-light: rgba(68, 35, 31, 0.8);
+      --secondary: #ab8e6a;
+      --secondary-light: #876b4e;
+      --background: #ebe7e9;
+      --card-background: #d0aea5;
+      --text: #18202b;
+      --white: #ffffff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+      background-color: var(--background);
+    }
+    
+    .flex {
+      display: flex;
+    }
+    
+    .flex-col {
+      flex-direction: column;
+    }
+    
+    .items-center {
+      align-items: center;
+    }
+    
+    .justify-center {
+      justify-content: center;
+    }
+    
+    .justify-between {
+      justify-content: space-between;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .relative {
+      position: relative;
+    }
+    
+    .absolute {
+      position: absolute;
+    }
+    
+    .w-full {
+      width: 100%;
+    }
+    
+    .max-w-4xl {
+      max-width: 56rem;
+    }
+    
+    .max-w-6xl {
+      max-width: 72rem;
+    }
+    
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .py-16 {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    
+    .py-8 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    .p-6 {
+      padding: 1.5rem;
+    }
+    
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+    
+    .mb-12 {
+      margin-bottom: 3rem;
+    }
+    
+    .mt-12 {
+      margin-top: 3rem;
+    }
+    
+    .mr-2 {
+      margin-right: 0.5rem;
+    }
+    
+    .gap-4 {
+      gap: 1rem;
+    }
+    
+    .gap-6 {
+      gap: 1.5rem;
+    }
+    
+    .gap-8 {
+      gap: 2rem;
+    }
+    
+    .grid {
+      display: grid;
+    }
+    
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    
+    .min-h-screen {
+      min-height: 100vh;
+    }
+    
+    .inset-0 {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .z-10 {
+      z-index: 10;
+    }
+    
+    .z-20 {
+      z-index: 20;
+    }
+    
+    .font-bold {
+      font-weight: 700;
+    }
+    
+    .font-medium {
+      font-weight: 500;
+    }
+    
+    .text-4xl {
+      font-size: 2.25rem;
+    }
+    
+    .text-3xl {
+      font-size: 1.875rem;
+    }
+    
+    .text-2xl {
+      font-size: 1.5rem;
+    }
+    
+    .text-xl {
+      font-size: 1.25rem;
+    }
+    
+    .text-lg {
+      font-size: 1.125rem;
+    }
+    
+    .text-sm {
+      font-size: 0.875rem;
+    }
+    
+    .rounded-md {
+      border-radius: 0.375rem;
+    }
+    
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+    
+    .border {
+      border: 1px solid;
+    }
+    
+    .border-0 {
+      border: none;
+    }
+    
+    .object-cover {
+      object-fit: cover;
+    }
+    
+    .opacity-70 {
+      opacity: 0.7;
+    }
+    
+    .overflow-hidden {
+      overflow: hidden;
+    }
+    
+    /* Componentes */
+    .header {
+      height: 500px;
+      background-color: var(--primary);
+      background-image: url('/chocolates/aru_icon_banner_001.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+    }
+    
+    .header-overlay {
+      background-color: rgba(68, 35, 31, 0.7);
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.625rem 2rem;
+      font-weight: 500;
+      border-radius: 0.375rem;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      text-decoration: none;
+      cursor: pointer;
+      height: 2.75rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary);
+      color: var(--white);
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-light);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid;
+    }
+    
+    .btn-chocolate {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    .btn-chocolate:hover {
+      background-color: var(--primary-light);
+    }
+    
+    .btn-white-outline {
+      border-color: var(--background);
+      color: var(--background);
+    }
+    
+    .btn-white-outline:hover {
+      background-color: rgba(235, 231, 233, 0.1);
+    }
+    
+    .card {
+      background-color: var(--white);
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .card-chocolate {
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+    
+    .chocolate-sample {
+      position: relative;
+      height: 16rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .chocolate-50 { background-color: #18202b; }
+    .chocolate-55 { background-color: #72252d; }
+    .chocolate-70 { background-color: #39121b; }
+    .chocolate-100 { background-color: #141a14; }
+    
+    .footer {
+      background-color: var(--text);
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .footer-border {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      color: rgba(255, 255, 255, 0.8);
+      transition: color 0.3s;
+    }
+    
+    .social-link:hover {
+      color: var(--white);
+    }
+    
+    /* Media queries */
+    @media (min-width: 640px) {
+      .sm-flex-row {
+        flex-direction: row;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .md-grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      
+      .md-grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      
+      .md-grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      
+      .md-flex-row {
+        flex-direction: row;
+      }
+      
+      .md-order-1 {
+        order: 1;
+      }
+      
+      .md-order-2 {
+        order: 2;
+      }
+      
+      .md-text-6xl {
+        font-size: 3.75rem;
+      }
+      
+      .md-mb-0 {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col min-h-screen">
+    <!-- Hero Section -->
+    <header class="relative w-full header flex items-center justify-center">
+      <div class="absolute inset-0 header-overlay z-10"></div>
+      <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+        <h1 class="text-4xl md-text-6xl font-bold text-white mb-4">Arú</h1>
+        <p class="text-xl text-white mb-8">Barras de chocolate artesanal con packaging ecológico</p>
+        <div class="flex flex-col sm-flex-row gap-4 justify-center">
+          <a href="tel:+593980870455" class="btn btn-primary">
+            <i data-lucide="phone" class="mr-2 h-4 w-4"></i> +593 980870455
+          </a>
+          <a href="/CATALOGO.pdf" target="_blank" class="btn btn-white-outline">
+            <i data-lucide="download" class="mr-2 h-4 w-4"></i> Descargar catálogo
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Nuestros Productos -->
+    <section class="py-16 px-4 bg-background">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-primary">Nuestras Barras de Chocolate</h2>
+        <div class="grid grid-cols-1 md-grid-cols-4 gap-8">
+          <!-- Chocolate 50% -->
+          <div class="card overflow-hidden">
+            <div class="chocolate-sample chocolate-50">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-4xl font-bold text-white">50%</span>
+              </div>
+              <img src="/chocolates/aru_50_001.png" alt="Chocolate 50%" class="object-cover opacity-70 w-full h-full">
+            </div>
+            <div class="p-6 bg-background">
+              <h3 class="text-xl font-bold mb-2 text-primary">Cacao 50%</h3>
+              <p class="text-text mb-4">
+                Equilibrio perfecto entre dulzura y notas de cacao. Ideal para quienes se inician en el chocolate
+                artesanal.
+              </p>
+            </div>
+          </div>
+
+          <!-- Chocolate 55% -->
+          <div class="card overflow-hidden">
+            <div class="chocolate-sample chocolate-55">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-4xl font-bold text-white">55%</span>
+              </div>
+              <img src="/chocolates/aru_55_001.png" alt="Chocolate 55%" class="object-cover opacity-70 w-full h-full">
+            </div>
+            <div class="p-6 bg-background">
+              <h3 class="text-xl font-bold mb-2 text-primary">Cacao 55%</h3>
+              <p class="text-text mb-4">
+                Mayor intensidad de cacao con un toque de dulzura. Sabores frutales y notas aromáticas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Chocolate 70% -->
+          <div class="card overflow-hidden">
+            <div class="chocolate-sample chocolate-70">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-4xl font-bold text-white">70%</span>
+              </div>
+              <img src="/chocolates/aru_70_001.png" alt="Chocolate 70%" class="object-cover opacity-70 w-full h-full">
+            </div>
+            <div class="p-6 bg-background">
+              <h3 class="text-xl font-bold mb-2 text-primary">Cacao 70%</h3>
+              <p class="text-text mb-4">
+                Intenso sabor a cacao con notas amargas y complejas. Para los amantes del chocolate puro.
+              </p>
+            </div>
+          </div>
+
+          <!-- Chocolate 100% -->
+          <div class="card overflow-hidden">
+            <div class="chocolate-sample chocolate-100">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-4xl font-bold text-white">100%</span>
+              </div>
+              <img src="/chocolates/aru_100_001.png" alt="Chocolate 100%" class="object-cover opacity-70 w-full h-full">
+            </div>
+            <div class="p-6 bg-background">
+              <h3 class="text-xl font-bold mb-2 text-primary">Cacao 100%</h3>
+              <p class="text-text mb-4">
+                La experiencia más pura del cacao. Sin azúcar añadido, para paladares exigentes.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href="/CATALOGO.pdf" target="_blank" class="btn btn-chocolate">
+            <i data-lucide="download" class="mr-2 h-4 w-4"></i> Ver catálogo completo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packaging Ecológico -->
+    <section class="py-16 px-4" style="background-color: rgba(208, 174, 165, 0.3);">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md-grid-cols-2 gap-12 items-center">
+          <div class="relative h-400 rounded-lg overflow-hidden">
+            <img src="/chocolates/aru_raices.jpg" alt="Packaging ecológico" class="object-cover w-full h-full">
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-primary">Packaging Ecológico</h2>
+            <div class="flex items-center mb-4">
+              <i data-lucide="leaf" class="h-6 w-6 text-secondary-light mr-2"></i>
+              <span class="text-lg font-medium text-secondary-light">Compromiso con el planeta</span>
+            </div>
+            <p class="text-text mb-4">
+              En Arú, nos comprometemos con el medio ambiente utilizando cartón reciclado premium para nuestros
+              empaques, reduciendo así nuestra huella ecológica.
+            </p>
+            <p class="text-text mb-4">
+              Cada barra viene en un elegante empaque de cartón reciclado color
+              <span class="text-secondary-light font-medium">tierra</span>, que no solo protege nuestro chocolate, sino
+              que también refleja nuestra filosofía de sostenibilidad.
+            </p>
+            <p class="text-text mb-6">
+              Elegir Arú es elegir calidad y responsabilidad ambiental en cada mordisco.
+            </p>
+            <a href="#" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">
+              Conocer más sobre nuestra filosofía
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestro Origen -->
+    <section class="py-16 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md-grid-cols-2 gap-12 items-center">
+          <div class="order-2 md-order-1">
+            <h2 class="text-3xl font-bold mb-6 text-primary">Nuestro Origen</h2>
+            <p class="text-text mb-4">
+              En Arú, seleccionamos cuidadosamente los mejores granos de cacao de regiones específicas, trabajando
+              directamente con productores locales que comparten nuestra pasión por la calidad.
+            </p>
+            <p class="text-text mb-4">
+              Nuestro proceso artesanal preserva los sabores naturales del cacao, creando chocolates con perfiles de
+              sabor únicos que reflejan el terroir de su origen.
+            </p>
+            <p class="text-text mb-6">
+              Cada barra es elaborada con dedicación, respetando técnicas tradicionales y combinándolas con innovación
+              para ofrecerte una experiencia de chocolate excepcional.
+            </p>
+            <a href="#" class="btn btn-primary">Conocer más sobre nuestro proceso</a>
+          </div>
+          <div class="relative h-400 rounded-lg overflow-hidden order-1 md-order-2">
+            <img src="/chocolates/aru_preparacion.jpg" alt="Origen del cacao" class="object-cover w-full h-full">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="py-16 px-4 bg-primary text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">¿Listo para probar Arú?</h2>
+        <p class="text-xl mb-8" style="color: rgba(255, 255, 255, 0.9);">
+          Contáctanos para realizar tu pedido o resolver cualquier duda que tengas
+        </p>
+        <div class="grid grid-cols-1 md-grid-cols-3 gap-6 mb-8">
+          <div class="card-chocolate p-6">
+            <div class="flex flex-col items-center">
+              <i data-lucide="phone" class="h-10 w-10 mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Teléfono</h3>
+              <p style="color: rgba(255, 255, 255, 0.9);">+593 980870455</p>
+            </div>
+          </div>
+          <div class="card-chocolate p-6">
+            <div class="flex flex-col items-center">
+              <i data-lucide="mail" class="h-10 w-10 mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Email</h3>
+              <p style="color: rgba(255, 255, 255, 0.9);">pedidos@aruchocolate.com</p>
+            </div>
+          </div>
+          <div class="card-chocolate p-6">
+            <div class="flex flex-col items-center">
+              <i data-lucide="instagram" class="h-10 w-10 mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Instagram</h3>
+              <p style="color: rgba(255, 255, 255, 0.9);">@chocolates_aru</p>
+            </div>
+          </div>
+        </div>
+        <a href="/CATALOGO.pdf" target="_blank" class="btn" style="background-color: var(--background); color: var(--primary);">
+          <i data-lucide="download" class="mr-2 h-4 w-4"></i> Descargar catálogo
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 footer">
+      <div class="max-w-6xl mx-auto flex flex-col md-flex-row justify-between items-center">
+        <div class="mb-4 md-mb-0">
+          <h3 class="text-xl font-bold text-white">Arú</h3>
+          <p class="text-sm">Chocolate artesanal con conciencia ecológica</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://www.instagram.com/chocolates_aru/" target="_blank" class="social-link">
+            <i data-lucide="instagram" class="h-5 w-5"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i data-lucide="map-pin" class="h-5 w-5"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i data-lucide="mail" class="h-5 w-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto footer-border text-center text-sm">
+        <p>© <script>document.write(new Date().getFullYear())</script> Arú Chocolate. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Inicializar iconos de Lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html> 
